@@ -1,16 +1,15 @@
 import { ReactNode } from "react";
 
+
+
+
 const AuthLayout = ({children}: {children:ReactNode}) => {
     return ( 
-        <html>
-            <body>
 
-                {children}
-                
-            </body>
-         
-
-        </html>
+        <div className="auth-layout">
+            {children}
+        </div>
+    
      );
 }
  
