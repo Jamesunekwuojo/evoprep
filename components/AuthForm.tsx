@@ -10,14 +10,11 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+
+import FormField from "./FormField";
 
 // const formSchema = z.object({
 //   username: z.string().min(2).max(50),
@@ -37,7 +34,7 @@ const authFormSchema = (type: FormType) => {
 };
 
 const AuthForm = ({type}:{ type:FormType }) => {
-    
+
   const formSchema = authFormSchema(type);
 
   // 1. Define your form.
@@ -83,7 +80,7 @@ const AuthForm = ({type}:{ type:FormType }) => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            {!isSignin && <p>Name</p>}
+            {!isSignin && <FormField control={form.control} name="name" label="Name" placeholder="Your name"/>}
 
             <p>Email</p>
             <p>Password</p>

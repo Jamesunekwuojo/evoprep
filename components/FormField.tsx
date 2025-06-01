@@ -1,32 +1,39 @@
-// import {
-//   Form,
-//   FormControl,
-//   FormDescription,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-// } from "@/components/ui/form";
-// import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+ 
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
 
+interface FormFieldProps <T extends FieldValues> {
+    control: Control<T>
+    name:Path<T>
+    label:string,
+    placeholder?: string
+    type?: 'text' | 'email' | 'password' | 'file'
+}
 
-// const FormField = () => {
-//   return (
-//     <FormField
-//       control={form.control}
-//       name="username"
-//       render={({ field }) => (
-//         <FormItem>
-//           <FormLabel>Username</FormLabel>
-//           <FormControl>
-//             <Input placeholder="shadcn" {...field} />
-//           </FormControl>
-//           <FormDescription>This is your public display name.</FormDescription>
-//           <FormMessage />
-//         </FormItem>
-//       )}
-//     />
-//   );
-// };
+const FormField = ({control, name, label, placeholder, type ="text"}:FormFieldProps<T>) => {
+  return (
+    <Controller name={name}
+      control={control}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="label">Username</FormLabel>
+          <FormControl>
+            <Input placeholder="shadcn" {...field} />
+          </FormControl>
+          <FormDescription>This is your public display name.</FormDescription>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+};
 
-// export default FormField;
+export default FormField;

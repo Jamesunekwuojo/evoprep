@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { Mona_Sans } from "next/font/google";
-
+import { Toaster } from "sonner";
 // const monoSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
@@ -33,6 +33,7 @@ export default function RootLayout({
         className={`${monoSans.className} antialiased`}
       >
         {children}
+        <Toaster></Toaster>
       </body>
     </html>
   );
